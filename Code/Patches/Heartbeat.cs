@@ -1,0 +1,29 @@
+﻿using System;
+using System.Collections.Generic;
+
+using HarmonyLib;
+
+using PhantomBrigade;
+
+namespace EchKode.PBMods.DelayedAttackAction
+{
+	static class Heartbeat
+	{
+		internal static readonly List<Action<GameController>> SystemInstalls = new List<Action<GameController>>()
+		{
+			PatchFeature.Install,
+		};
+
+		public static void Start()
+		{
+			var fi = AccessTools.DeclaredField(typeof(PhantomBrigade.Heartbeat), "_gameController");
+			if (fi == null)
+			{
+				return;
+			}
+
+			var gameController = (GameController)fi.GetValue(null);
+			SystemInstalls.ForEach(install => install(gameController));
+		}
+	}
+}
