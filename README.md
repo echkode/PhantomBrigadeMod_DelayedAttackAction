@@ -1,5 +1,7 @@
 # DelayedAttackAction
 
+**This mod is obsolete.** A better system has been added to the game for managing when rounds are fired during an attack action.
+
 A library mod for [Phantom Brigade](https://braceyourselfgames.com/phantom-brigade/) that adds a delay to when rounds are fired in an attack action.
 
 It is compatible with game patch **1.0.4**. All library mods are fragile and susceptible to breakage whenever a new version is released.
